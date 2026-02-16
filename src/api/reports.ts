@@ -120,7 +120,7 @@ export async function submitReport(input: PriceReportInput): Promise<{ ok: true;
     return { ok: true, report }
   }
 
-  // Demo: store in localStorage (photo as object URL not storable, so we store a placeholder)
+  // Demo: store in localStorage; we can't persist the image, but record if they added one so badge shows "Photo confirmed"
   const report: PriceReport = {
     id: crypto.randomUUID(),
     stationId: input.stationId,
@@ -128,7 +128,7 @@ export async function submitReport(input: PriceReportInput): Promise<{ ok: true;
     diesel: input.diesel,
     premiumPetrol: input.premiumPetrol,
     premiumDiesel: input.premiumDiesel,
-    photoUrl: null, // demo mode: no persistent photo
+    photoUrl: input.photoFile ? 'demo' : null,
     reportedAt: new Date().toISOString(),
   }
   try {

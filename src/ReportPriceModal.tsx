@@ -145,7 +145,7 @@ export function ReportPriceModal({ station: initialStation, stations, onClose, o
 
           <div className="form-group">
             <label htmlFor="report-photo">Photo of pump or price board (optional)</label>
-            <p className="form-hint">Add a photo so others can verify — more people report when it&apos;s optional.</p>
+            <p className="form-hint">Add a photo so others can verify.</p>
             <input
               ref={fileInputRef}
               id="report-photo"

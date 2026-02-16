@@ -48,7 +48,7 @@ export function StationCard({ station, highlightFuel, report, onReportClick, onS
       <h2 className="station-name">{name}</h2>
       <p className="station-address">{address}</p>
 
-      {report?.photoUrl && (
+      {report?.photoUrl?.startsWith('http') && (
         <a
           href={report.photoUrl}
           target="_blank"
