@@ -36,6 +36,20 @@ export function StationCard({ station, highlightFuel, report, onReportClick, onS
 
   const { name, brand, address, area } = station
 
+  const handlePhotoClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!photoDisplayUrl || !report?.photoUrl) return
+    e.preventDefault()
+    try {
+      const res = await fetch(photoDisplayUrl, { mode: 'cors' })
+      if (!res.ok) throw new Error('Fetch failed')
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      window.open(url, '_blank', 'noopener,noreferrer')
+    } catch {
+      window.open(report.photoUrl, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
     <article className="station-card">
       <div className="station-card-header">
@@ -62,6 +76,7 @@ export function StationCard({ station, highlightFuel, report, onReportClick, onS
           rel="noopener noreferrer"
           className={`station-report-photo ${photoLoadFailed ? 'station-report-photo--link-only' : ''}`}
           title="View confirmation photo (opens in new tab)"
+          onClick={handlePhotoClick}
         >
           {!photoLoadFailed && (
             <img

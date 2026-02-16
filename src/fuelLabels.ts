@@ -1,7 +1,7 @@
 import type { FuelType } from './types'
 
 export const fuelLabels: Record<FuelType, string> = {
-  petrol: 'Petrol (95)',
+  petrol: 'Petrol',
   diesel: 'Diesel',
   premiumPetrol: 'Premium petrol',
   premiumDiesel: 'Premium diesel',
