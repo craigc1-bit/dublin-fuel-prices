@@ -1,5 +1,6 @@
 import type { FuelType } from './types'
 
+/** Display labels for fuel types (no octane number). */
 export const fuelLabels: Record<FuelType, string> = {
   petrol: 'Petrol',
   diesel: 'Diesel',
