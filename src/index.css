@@ -1,0 +1,38 @@
+:root {
+  --bg: #0f0f0e;
+  --surface: #1a1a18;
+  --surface-hover: #22221f;
+  --border: #2d2d29;
+  --text: #e8e6e3;
+  --text-muted: #9a968f;
+  --accent: #e8a317;
+  --accent-dim: #b87d0f;
+  --success: #6b9b6b;
+  --badge: #2d2d29;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button, select {
+  font-family: inherit;
+  cursor: pointer;
+}

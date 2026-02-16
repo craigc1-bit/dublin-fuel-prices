@@ -1,0 +1,247 @@
+.report-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.report-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  max-width: 440px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.report-modal-header {
+  padding: 1.25rem 1.25rem 0;
+  position: relative;
+}
+
+.report-modal-header h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.report-modal-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.report-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: var(--badge);
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.report-modal-close:hover {
+  color: var(--text);
+  background: var(--border);
+}
+
+.report-modal-demo {
+  margin: 0.75rem 1.25rem 0;
+  padding: 0.6rem 0.75rem;
+  background: rgba(232, 163, 23, 0.12);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.report-modal-form {
+  padding: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label,
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.form-hint {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-hint--soft {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-prices .price-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.price-input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.price-input-row label {
+  font-size: 0.85rem;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.price-input-row input {
+  padding: 0.5rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.report-photo-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.report-photo-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--badge);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.report-photo-trigger:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+.report-photo-preview {
+  margin-top: 0.5rem;
+}
+
+.report-photo-preview img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.report-photo-remove {
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+}
+
+.report-photo-remove:hover {
+  color: var(--text);
+}
+
+.form-error {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.65rem;
+  background: rgba(180, 60, 60, 0.15);
+  border-radius: 6px;
+  color: #e8a0a0;
+  font-size: 0.9rem;
+}
+
+.form-success {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.65rem;
+  background: rgba(107, 155, 107, 0.2);
+  border-radius: 6px;
+  color: var(--success);
+  font-size: 0.9rem;
+}
+
+.report-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.btn {
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+  background: var(--badge);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-dim);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
