@@ -57,11 +57,11 @@ export function StationCard({ station, highlightFuel, report, onReportClick, onS
 
       {report?.photoUrl && report.photoUrl !== 'demo' && report.photoUrl.startsWith('http') && photoDisplayUrl && (
         <a
-          href={photoDisplayUrl}
+          href={report.photoUrl}
           target="_blank"
           rel="noopener noreferrer"
           className={`station-report-photo ${photoLoadFailed ? 'station-report-photo--link-only' : ''}`}
-          title="View confirmation photo"
+          title="View confirmation photo (opens in new tab)"
         >
           {!photoLoadFailed && (
             <img
