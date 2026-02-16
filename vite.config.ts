@@ -32,7 +32,12 @@ function loadEnvFromProjectRoot(): Record<string, string> {
   }
 }
 
-const env = loadEnvFromProjectRoot()
+const envFromFile = loadEnvFromProjectRoot()
+// Use process.env so Vercel (and other hosts) can inject VITE_* at build time
+const env = {
+  VITE_SUPABASE_URL: envFromFile.VITE_SUPABASE_URL || process.env.VITE_SUPABASE_URL || '',
+  VITE_SUPABASE_ANON_KEY: envFromFile.VITE_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '',
+}
 
 export default defineConfig({
   plugins: [
@@ -71,7 +76,7 @@ export default defineConfig({
   ],
   envDir: __dirname,
   define: {
-    __SUPABASE_URL__: JSON.stringify(env.VITE_SUPABASE_URL ?? ''),
-    __SUPABASE_ANON_KEY__: JSON.stringify(env.VITE_SUPABASE_ANON_KEY ?? ''),
+    __SUPABASE_URL__: JSON.stringify(env.VITE_SUPABASE_URL || ''),
+    __SUPABASE_ANON_KEY__: JSON.stringify(env.VITE_SUPABASE_ANON_KEY || ''),
   },
 })
