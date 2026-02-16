@@ -252,7 +252,7 @@ function App() {
       )}
 
       <footer className="footer">
-        <p>Base station list is sample data. Prices can be updated by users with photo confirmation. For more stations see <a href="https://pumps.ie" target="_blank" rel="noopener noreferrer">Pumps.ie</a> or <a href="https://petrolprices.ie" target="_blank" rel="noopener noreferrer">PetrolPrices.ie</a>.</p>
+        <p>Base station list is sample data. Prices can be updated by users with photo confirmation.</p>
       </footer>
     </div>
   )

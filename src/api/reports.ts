@@ -1,7 +1,11 @@
 import type { PriceReport, PriceReportInput } from '../types'
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
+import { VITE_SUPABASE_URL } from '../lib/env'
 
 const STORAGE_BUCKET = 'price-confirmation-photos'
+const PUBLIC_URL_PREFIX = `${VITE_SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}/`
+// Match any Supabase-style public URL for our bucket (robust to origin/encoding)
+const PUBLIC_URL_REGEX = /\/storage\/v1\/object\/public\/price-confirmation-photos\/(.+?)(?:\?|$)/
 const DEMO_STORAGE_KEY = 'dublin-fuel-demo-reports'
 
 /** Supabase price_reports row (no generated types, so we define shape). */
@@ -140,4 +144,30 @@ export async function submitReport(input: PriceReportInput): Promise<{ ok: true;
     return { ok: false, error: 'Failed to save report locally.' }
   }
   return { ok: true, report }
+}
+
+/** Get a signed URL for displaying a Supabase storage photo (avoids CORS/referrer issues with public URL). */
+export async function getSignedPhotoUrl(photoUrl: string | null): Promise<string | null> {
+  if (!photoUrl || !photoUrl.startsWith('http') || !isSupabaseConfigured || !supabase) return photoUrl
+  // Prefer exact prefix match; fallback to regex so we still work if origin differs slightly
+  let path: string | null = null
+  if (VITE_SUPABASE_URL && photoUrl.startsWith(PUBLIC_URL_PREFIX)) {
+    path = photoUrl.slice(PUBLIC_URL_PREFIX.length).split('?')[0].trim()
+  } else {
+    const match = photoUrl.match(PUBLIC_URL_REGEX)
+    if (match) {
+      try {
+        path = decodeURIComponent(match[1].trim())
+      } catch {
+        path = match[1].trim()
+      }
+    }
+  }
+  if (!path) return photoUrl
+  const { data, error } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(path, 3600)
+  if (error) {
+    console.warn('getSignedPhotoUrl', error)
+    return photoUrl
+  }
+  return data?.signedUrl ?? photoUrl
 }

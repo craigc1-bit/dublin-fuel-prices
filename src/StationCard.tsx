@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import type { FuelStation, FuelType, PriceReport } from './types'
 import { fuelLabels, formatPrice, formatLastUpdated } from './fuelLabels'
+import { usePhotoDisplayUrl } from './usePhotoDisplayUrl'
 import './StationCard.css'
 
 interface StationCardProps {
@@ -11,6 +13,11 @@ interface StationCardProps {
 }
 
 export function StationCard({ station, highlightFuel, report, onReportClick, onShowOnMap }: StationCardProps) {
+  const photoDisplayUrl = usePhotoDisplayUrl(report?.photoUrl)
+  const [photoLoadFailed, setPhotoLoadFailed] = useState(false)
+  useEffect(() => {
+    setPhotoLoadFailed(false)
+  }, [photoDisplayUrl])
   const prices = report
     ? {
         petrol: report.petrol,
@@ -48,15 +55,22 @@ export function StationCard({ station, highlightFuel, report, onReportClick, onS
       <h2 className="station-name">{name}</h2>
       <p className="station-address">{address}</p>
 
-      {report?.photoUrl?.startsWith('http') && (
+      {report?.photoUrl && report.photoUrl !== 'demo' && report.photoUrl.startsWith('http') && photoDisplayUrl && (
         <a
-          href={report.photoUrl}
+          href={photoDisplayUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="station-report-photo"
+          className={`station-report-photo ${photoLoadFailed ? 'station-report-photo--link-only' : ''}`}
           title="View confirmation photo"
         >
-          <img src={report.photoUrl} alt="Price confirmation" />
+          {!photoLoadFailed && (
+            <img
+              src={photoDisplayUrl}
+              alt="Price confirmation"
+              referrerPolicy="no-referrer"
+              onError={() => setPhotoLoadFailed(true)}
+            />
+          )}
           <span>Photo</span>
         </a>
       )}

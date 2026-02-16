@@ -109,6 +109,17 @@ This makes the live app use Vercel’s Supabase env vars instead of only the `.e
 
 ---
 
+## If photos don’t load in the app (but download works)
+
+The app uses `referrerPolicy="no-referrer"` on photo images so the browser doesn’t send the page URL as Referer; some CDNs block inline display when Referer is from another site.
+
+If the image still doesn’t show in the card:
+
+1. In the browser, open **Developer tools** → **Network**, reload, and find the request to the photo URL. Check whether the response is **200** or **403**.
+2. In Supabase: **Storage** → **price-confirmation-photos** → **Configuration** (or bucket settings). If there is a **CORS** section, add your app origin (e.g. `https://dublin-fuel-prices.vercel.app` and `http://localhost:5173`) so the bucket allows requests from the app.
+
+---
+
 ## Quick checklist
 
 - [ ] Part 1: SQL run in Supabase → `price_reports` table exists.
