@@ -137,7 +137,6 @@ export const dublinStations: FuelStation[] = [
   station('104', 'Applegreen Killester', 'Applegreen', '221-223 Howth Rd, Dublin', 'Killester', 53.3734325, -6.2003931),
   station('105', 'Applegreen Ballyfermot', 'Applegreen', '250-252 Sarsfield Rd, Dublin', 'Ballyfermot', 53.3428418, -6.3339445),
   station('106', 'Applegreen Kimmage', 'Applegreen', '268 Lower Kimmage Rd, Dublin', 'Kimmage', 53.316656, -6.316342),
-  station('107', 'Applegreen Crumlin', 'Applegreen', 'St Agnes Rd, Dublin', 'Crumlin', 53.3167136, -6.3163052),
   station('108', 'Applegreen Booterstown', 'Applegreen', '372 Merrion Rd, Blackrock', 'Booterstown', 53.3117634, -6.2010091),
   station('110', 'Applegreen Santry', 'Applegreen', 'Swords Rd, Turnapin Great, Swords', 'Santry', 53.4121211, -6.2395753),
   station('111', 'Applegreen Cherry Orchard', 'Applegreen', '372 Ballyfermot Rd, Dublin', 'Cherry Orchard', 53.3440156, -6.3704229),
@@ -149,7 +148,7 @@ export const dublinStations: FuelStation[] = [
   station('118', 'Applegreen M1 Balbriggan', 'Applegreen', 'Rowans Rd, Courtlough', 'Balbriggan', 53.564615, -6.211399),
   station('119', 'Applegreen Baldoyle', 'Applegreen', 'Grange Rd, Dublin', 'Baldoyle', 53.3970341, -6.1453345),
   station('120', 'Applegreen Clondalkin', 'Applegreen', 'The Laurels, Dublin', 'Clondalkin', 53.3211228, -6.3914312),
-  station('121', 'Applegreen Kinsealy', 'Applegreen', 'Malahide Rd, Dublin', 'Kinsealy', 53.4233007, -6.1766698),
+  station('121', 'Applegreen Kinsealy', 'Applegreen', 'Malahide Rd, Dublin', 'Kinsealy', 53.419226, -6.176757),
   station('122', 'Texaco Monkstown Abbey', 'Texaco', 'Abbey Road, Monkstown', 'Monkstown', 53.282742, -6.159004),
   station('123', 'Applegreen Clonsilla', 'Applegreen', 'Clonsilla Rd, Dublin', 'Clonsilla', 53.3833071, -6.4178615),
   station('124', 'Applegreen Rochestown', 'Applegreen', 'Rochestown Ave, Dublin', 'Rochestown', 53.2792198, -6.1572026),
@@ -161,5 +160,5 @@ export const dublinStations: FuelStation[] = [
   station('130', 'Applegreen Shankill', 'Applegreen', 'Shankill Rd, Shankill', 'Shankill', 53.2350762, -6.1257527),
   station('131', 'Applegreen Rathcoole', 'Applegreen', 'Naas Road, Rathcoole', 'Rathcoole', 53.2782672, -6.4879888),
   station('132', 'Applegreen Celbridge Dublin Road', 'Applegreen', 'Donaghcumper, Celbridge', 'Celbridge', 53.3385908, -6.533968),
-  station('133', 'Applegreen Celbridge', 'Applegreen', 'Maynooth Road, Roundabout, Celbridge', 'Celbridge', 53.3480278, -6.5423422),
+  station('133', 'Applegreen Celbridge', 'Applegreen', 'Maynooth Road, Roundabout, Celbridge', 'Celbridge', 53.358651, -6.547665),
 ]
