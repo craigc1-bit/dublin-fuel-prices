@@ -154,7 +154,7 @@ export const dublinStations: FuelStation[] = [
   station('121', 'Applegreen Kinsealy', 'Applegreen', 'Malahide Rd, Dublin', 'Kinsealy', 53.4233007, -6.1766698),
   station('122', 'Applegreen Monkstown Abbey', 'Applegreen', 'Abbey Road, Monkstown', 'Monkstown', 53.28328, -6.1592982),
   station('123', 'Applegreen Clonsilla', 'Applegreen', 'Clonsilla Rd, Dublin', 'Clonsilla', 53.3832986, -6.4130816),
-  station('124', 'Applegreen Rochestown', 'Applegreen', 'Rochestown Ave, Dublin', 'Rochestown', 53.27021, -6.141548),
+  station('124', 'Applegreen Rochestown', 'Applegreen', 'Rochestown Ave, Dublin', 'Rochestown', 53.2792198, -6.1572026),
   station('125', 'Applegreen Pottery Road', 'Applegreen', 'Rochestown Avenue, Dun Laoghaire', 'Dún Laoghaire', 53.2792198, -6.1572026),
   station('126', 'Applegreen Jobstown', 'Applegreen', 'Fortunestown Rd, Tallaght', 'Jobstown', 53.2786744, -6.3997239),
   station('127', 'Applegreen Mountgorry', 'Applegreen', 'Mountgorry Way, Swords', 'Swords', 53.4539906, -6.2036317),
