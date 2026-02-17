@@ -145,12 +145,6 @@
   pointer-events: none;
 }
 
-.report-photo-triggers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
 .report-photo-trigger {
   display: inline-flex;
   align-items: center;

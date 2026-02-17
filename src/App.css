@@ -73,12 +73,6 @@
   .main {
     grid-template-columns: 1fr;
   }
-
-  /* Let filters scroll with the page so they don’t cover the list on mobile */
-  .filters {
-    position: static;
-    top: auto;
-  }
 }
 
 .filters {
@@ -88,6 +82,14 @@
   height: fit-content;
   position: sticky;
   top: 1rem;
+}
+
+@media (max-width: 700px) {
+  /* Let filters scroll with the page so they don’t cover the list on mobile */
+  .filters {
+    position: static;
+    top: auto;
+  }
 }
 
 .view-toggle-group label {
