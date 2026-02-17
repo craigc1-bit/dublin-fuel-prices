@@ -22,7 +22,8 @@ export function ReportPriceModal({ station: initialStation, stations, onClose, o
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const cameraInputRef = useRef<HTMLInputElement>(null)
+  const libraryInputRef = useRef<HTMLInputElement>(null)
 
   // Soft hint if price looks unusual (optional photo helps verify)
   const enteredPrices = [prices.petrol, prices.diesel, prices.premiumPetrol, prices.premiumDiesel]
@@ -144,16 +145,26 @@ export function ReportPriceModal({ station: initialStation, stations, onClose, o
           </div>
 
           <div className="form-group">
-            <label htmlFor="report-photo">Photo of pump or price board (optional)</label>
+            <label id="report-photo-label">Photo of pump or price board (optional)</label>
             <p className="form-hint">Add a photo so others can verify.</p>
             <input
-              ref={fileInputRef}
-              id="report-photo"
+              ref={cameraInputRef}
+              id="report-photo-camera"
               type="file"
               accept="image/*"
               capture="environment"
               onChange={handlePhotoChange}
-              className="report-photo-input"
+              className="report-photo-input report-photo-input--hidden"
+              aria-labelledby="report-photo-label"
+            />
+            <input
+              ref={libraryInputRef}
+              id="report-photo-library"
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className="report-photo-input report-photo-input--hidden"
+              aria-labelledby="report-photo-label"
             />
             {photoPreview && (
               <div className="report-photo-preview">
@@ -165,7 +176,8 @@ export function ReportPriceModal({ station: initialStation, stations, onClose, o
                     setPhotoFile(null)
                     if (photoPreview) URL.revokeObjectURL(photoPreview)
                     setPhotoPreview(null)
-                    fileInputRef.current?.value && (fileInputRef.current.value = '')
+                    cameraInputRef.current && (cameraInputRef.current.value = '')
+                    libraryInputRef.current && (libraryInputRef.current.value = '')
                   }}
                 >
                   Remove photo
@@ -173,13 +185,22 @@ export function ReportPriceModal({ station: initialStation, stations, onClose, o
               </div>
             )}
             {!photoPreview && (
-              <button
-                type="button"
-                className="report-photo-trigger"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                📷 Choose photo
-              </button>
+              <div className="report-photo-triggers">
+                <button
+                  type="button"
+                  className="report-photo-trigger"
+                  onClick={() => cameraInputRef.current?.click()}
+                >
+                  📷 Take photo
+                </button>
+                <button
+                  type="button"
+                  className="report-photo-trigger"
+                  onClick={() => libraryInputRef.current?.click()}
+                >
+                  🖼️ Choose from library
+                </button>
+              </div>
             )}
             {isOutlier && !photoPreview && (
               <p className="form-hint form-hint--soft">This price is outside the usual range. Adding a photo helps others verify it.</p>

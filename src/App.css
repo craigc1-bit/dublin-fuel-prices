@@ -73,6 +73,12 @@
   .main {
     grid-template-columns: 1fr;
   }
+
+  /* Let filters scroll with the page so they don’t cover the list on mobile */
+  .filters {
+    position: static;
+    top: auto;
+  }
 }
 
 .filters {
